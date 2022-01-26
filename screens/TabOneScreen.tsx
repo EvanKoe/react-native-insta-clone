@@ -17,6 +17,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#1D1D29',
     alignItems: 'center',
     justifyContent: 'center',
   },
