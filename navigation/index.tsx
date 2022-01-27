@@ -1,17 +1,10 @@
-/**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, View } from 'react-native';
+import { View } from 'react-native';
 
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
@@ -20,12 +13,10 @@ import TabThreeScreen from '../screens/TabThreeScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
-import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
 import TabFourScreen from '../screens/TabFourScreen';
 import TabFiveScreen from '../screens/TabFiveScreen';
-import { setStatusBarBackgroundColor } from 'expo-status-bar';
 
 export default function Navigation() {
   return (
@@ -64,8 +55,7 @@ function BottomTabNavigator() {
         tabBarActiveTintColor: '#fff',
         tabBarHideOnKeyboard: true,
         tabBarStyle: {
-          borderRadius: 25,
-          height: 100,
+          height: 80,
           paddingTop: 2,
           paddingBottom: 0,
           backgroundColor: '#262837',
@@ -97,8 +87,9 @@ function BottomTabNavigator() {
             <View
               style={{
                 backgroundColor : focused ? '#00000000' : '#55c',
-                padding: 20,
-                borderRadius: 20
+                borderRadius: 20,
+                paddingVertical: 15,
+                paddingHorizontal: 20
               }}
             >
               <FontAwesome name="plus-square-o" size={30} color={focused ? '#77f' : '#fff'} />
