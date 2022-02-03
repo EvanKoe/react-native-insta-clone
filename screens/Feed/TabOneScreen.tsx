@@ -1,26 +1,38 @@
 import React from 'react';
-import { StyleSheet, FlatList, View } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
+import { GestureEvent, PanGestureHandler, PanGestureHandlerEventPayload } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import FeedPost from '../components/FeedPost';
-import { RootTabScreenProps } from '../types';
+import FeedPost from './FeedPost';
+import Header from './Header';
+import { RootTabScreenProps } from '../../types';
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+  const gestureHandler = (e: GestureEvent<PanGestureHandlerEventPayload>) => {
+    if (e.nativeEvent.velocityX < 0 && Math.abs(e.nativeEvent.velocityY) < 20)
+      navigation.navigate('DM');
+  }
+
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={values}
-        renderItem={(e) => (
-          <FeedPost
-            username={e.item.username}
-            image={e.item.image}
-            userpic={e.item.userpic}
-            description={e.item.description}
-          />
-        )}
-        keyExtractor={(e) => 'feedPos_' + e.id}
-        showsVerticalScrollIndicator={false}
-      />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Header tab='FEED' nav={navigation} />
+      <PanGestureHandler enabled onGestureEvent={gestureHandler}>
+        <FlatList
+          data={values}
+          renderItem={(e) => (
+            <FeedPost
+              username={e.item.username}
+              image={e.item.image}
+              userpic={e.item.userpic}
+              description={e.item.description}
+              nav={navigation}
+            />
+          )}
+          keyExtractor={(e) => 'feedPos_' + e.id}
+          showsVerticalScrollIndicator={false}
+        />
+      </PanGestureHandler>
+    </SafeAreaView>
   );
 }
 

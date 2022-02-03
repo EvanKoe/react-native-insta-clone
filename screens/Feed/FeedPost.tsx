@@ -3,12 +3,10 @@ import {
   View,
   Text,
   Image,
-  ImageSourcePropType,
   StyleSheet
 } from 'react-native';
 
-import { Feather } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { AntDesign, Feather } from '@expo/vector-icons';
 
 type FeedPostProps = {
   id?: number | undefined;
@@ -16,6 +14,7 @@ type FeedPostProps = {
   userpic: string;
   image: string;
   description: string;
+  nav: any;
 };
 
 const FeedPost = ({
@@ -23,7 +22,8 @@ const FeedPost = ({
   username = "User",
   userpic = "",
   image = "",
-  description = ""
+  description = "",
+  nav = undefined
 }: FeedPostProps) => {
   return (
     <View style={styles.container}>
@@ -41,7 +41,7 @@ const FeedPost = ({
 
       <View style={styles.likeFooter}>
         <Feather name="heart" size={24} color='#8E8E8F' style={styles.likeBarItem} />
-        <FontAwesome5 name="comment" size={24} color='#8E8E8F' style={styles.likeBarItem} />
+        <AntDesign name="message1" size={24} color="#8E8E8F" style={styles.likeBarItem} />
         <Feather name="send" size={24} color='#8E8E8F' style={styles.likeBarItem} />
         <Feather name="bookmark" size={24} color='#8E8E8F' style={{ marginLeft: 'auto' }} />
       </View>
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#262837',
     borderRadius: 20,
-    margin: 10,
+    marginBottom: 20,
     padding: 20,
     marginLeft: 'auto',
     marginRight: 'auto',

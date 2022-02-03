@@ -7,7 +7,7 @@ import { View } from 'react-native';
 
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
+import TabOneScreen from '../screens/Feed/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
@@ -17,6 +17,7 @@ import { Feather } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
 import TabFourScreen from '../screens/TabFourScreen';
 import TabFiveScreen from '../screens/TabFiveScreen';
+import DirectMessages from '../screens/Direct/DirectMessages';
 
 export default function Navigation() {
   return (
@@ -34,6 +35,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name="DM" component={DirectMessages} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
@@ -44,7 +46,7 @@ function RootNavigator() {
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
-function BottomTabNavigator() {
+function BottomTabNavigator({ navigation }: any) {
   return (
     <BottomTab.Navigator
       initialRouteName="TabOne"
@@ -60,7 +62,8 @@ function BottomTabNavigator() {
           paddingBottom: 0,
           backgroundColor: '#262837',
           elevation: 20
-        }
+        },
+        headerShown: false
       }}>
       <BottomTab.Screen
         name="TabOne"
