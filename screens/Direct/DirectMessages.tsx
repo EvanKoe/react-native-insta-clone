@@ -18,7 +18,7 @@ type MessageObject = {
 };
 
 const DirectMessages = ({ navigation }) => {
-  const [fields, setFields] = useState<string[]>(['']);
+  const [fields, setFields] = useState<string[]>(messages.map(e => e.name));
   const renderConv = (e: ListRenderItemInfo<MessageObject>) => {
     return (
       <TouchableOpacity style={styles.convContainer}>
