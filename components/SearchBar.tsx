@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -12,10 +12,11 @@ const SearchBar = ({
   setState = () => {}
 }: SearchBarProps) => {
   const [str, setStr] = useState<string>('');
+
   const finished = () => {
-    if (data === [''])
+    if (data === [''] || str === '')
       return
-    setState(data?.filter(e => e.toLowerCase() === str.toLowerCase()))
+    setState(data?.filter(e => e.toLowerCase().includes(str.toLowerCase())))
   }
 
   return (
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#6C6C6D',
     marginHorizontal: 20,
     paddingHorizontal: 10,
+    marginBottom: 10,
     borderRadius: 7,
     height: 40,
     justifyContent: 'center',

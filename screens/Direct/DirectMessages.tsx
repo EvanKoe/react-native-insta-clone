@@ -21,7 +21,7 @@ const DirectMessages = ({ navigation }) => {
   const [fields, setFields] = useState<string[]>(messages.map(e => e.name));
   const renderConv = (e: ListRenderItemInfo<MessageObject>) => {
     return (
-      <TouchableOpacity style={styles.convContainer}>
+      <TouchableOpacity style={styles.convContainer} onPress={() => navigation.navigate('CONV', { msg: e.item })}>
         <Image source={{ uri: e.item.image }} style={styles.convImage} />
         <View style={{ justifyContent: 'center' }}>
           <Text style={styles.convTitle} >{ xOrMore(e.item.name, 30) }</Text>
@@ -100,6 +100,126 @@ const messages: MessageObject[] = [
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvCu_5fDK1jhDGCAwewGXaPxm2Rr4SV4bR_w&usqp=CAU',
     name: 'Jake',
     messages: [
+      {
+        id: 0,
+        sender: 'Jake',
+        body: 'Hello ! How are you and your family ? Is your wife healing well ?',
+        date: '15:04'
+      },
+      {
+        id: 1,
+        sender: 'You',
+        body: 'Yes, thanks ! She\'s glad you asked !',
+        date: '15:17'
+      },
+      {
+        id: 2,
+        sender: 'Jake',
+        body: 'Hello ! How are you and your family ? Is your wife healing well ?',
+        date: '15:04'
+      },
+      {
+        id: 3,
+        sender: 'You',
+        body: 'Yes, thanks ! She\'s glad you asked !',
+        date: '15:17'
+      },
+      {
+        id: 4,
+        sender: 'Jake',
+        body: 'Hello ! How are you and your family ? Is your wife healing well ?',
+        date: '15:04'
+      },
+      {
+        id: 5,
+        sender: 'You',
+        body: 'Yes, thanks ! She\'s glad you asked !',
+        date: '15:17'
+      },
+      {
+        id: 0,
+        sender: 'Jake',
+        body: 'Hello ! How are you and your family ? Is your wife healing well ?',
+        date: '15:04'
+      },
+      {
+        id: 1,
+        sender: 'You',
+        body: 'Yes, thanks ! She\'s glad you asked !',
+        date: '15:17'
+      },
+      {
+        id: 0,
+        sender: 'Jake',
+        body: 'Hello ! How are you and your family ? Is your wife healing well ?',
+        date: '15:04'
+      },
+      {
+        id: 1,
+        sender: 'You',
+        body: 'Yes, thanks ! She\'s glad you asked !',
+        date: '15:17'
+      },
+      {
+        id: 0,
+        sender: 'Jake',
+        body: 'Hello ! How are you and your family ? Is your wife healing well ?',
+        date: '15:04'
+      },
+      {
+        id: 1,
+        sender: 'You',
+        body: 'Yes, thanks ! She\'s glad you asked !',
+        date: '15:17'
+      },
+      {
+        id: 0,
+        sender: 'Jake',
+        body: 'Hello ! How are you and your family ? Is your wife healing well ?',
+        date: '15:04'
+      },
+      {
+        id: 1,
+        sender: 'You',
+        body: 'Yes, thanks ! She\'s glad you asked !',
+        date: '15:17'
+      },
+      {
+        id: 0,
+        sender: 'Jake',
+        body: 'Hello ! How are you and your family ? Is your wife healing well ?',
+        date: '15:04'
+      },
+      {
+        id: 1,
+        sender: 'You',
+        body: 'Yes, thanks ! She\'s glad you asked !',
+        date: '15:17'
+      },
+      {
+        id: 0,
+        sender: 'Jake',
+        body: 'Hello ! How are you and your family ? Is your wife healing well ?',
+        date: '15:04'
+      },
+      {
+        id: 1,
+        sender: 'You',
+        body: 'Yes, thanks ! She\'s glad you asked !',
+        date: '15:17'
+      },
+      {
+        id: 0,
+        sender: 'Jake',
+        body: 'Hello ! How are you and your family ? Is your wife healing well ?',
+        date: '15:04'
+      },
+      {
+        id: 1,
+        sender: 'You',
+        body: 'Yes, thanks ! She\'s glad you asked !',
+        date: '15:17'
+      },
       {
         id: 0,
         sender: 'Jake',

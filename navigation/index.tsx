@@ -18,6 +18,7 @@ import { Foundation } from '@expo/vector-icons';
 import TabFourScreen from '../screens/TabFourScreen';
 import TabFiveScreen from '../screens/TabFiveScreen';
 import DirectMessages from '../screens/Direct/DirectMessages';
+import Conversation from '../screens/Conversation/Conversation';
 
 export default function Navigation() {
   return (
@@ -36,6 +37,7 @@ function RootNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="DM" component={DirectMessages} options={{ headerShown: false }} />
+      <Stack.Screen name="CONV" component={Conversation} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
