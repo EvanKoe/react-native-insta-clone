@@ -5,7 +5,9 @@ import { Feather } from '@expo/vector-icons';
 const Header = ({ tab = "UNKNOWN", nav = undefined }) => {
   return (
     <View style={styles.container}>
-      <Feather name="camera" size={24} color="#8E8E8F" style={styles.direct} />
+      <TouchableOpacity onPress={() => nav.navigate('CAMERA')} style={styles.direct}>
+        <Feather name="camera" size={24} color="#8E8E8F" />
+      </TouchableOpacity>
       <Text style={styles.title}>Instagram</Text>
       <TouchableOpacity onPress={() => nav && nav.navigate('DM')} style={styles.direct}>
         <Feather name="mail" size={25} color="#8E8E8F" />
